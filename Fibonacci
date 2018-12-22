@@ -1,0 +1,51 @@
+
+/**
+ * This class tests the Fibonacci method for 
+ * the given numbers entered
+ *
+ * Brian Snyder
+ * 1/5/18
+ */
+import java.util.Scanner;
+import java.util.ArrayList;
+public class FibonacciNums {
+    public int calcFibonacci(int x) { // recursive method       
+        if (x == 0) {
+            return 0; // returns f(0) = 0
+        } else if (x == 1) {
+            return 1; // returns f(1) = 1
+        } else {
+            return (calcFibonacci(x-1) + calcFibonacci(x-2)); // method calls itself 
+        }
+    }
+    // main method
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in); // initializes scanner
+        FibonacciNums num = new FibonacciNums(); // initializes new object
+        ArrayList<Integer> numbers = new ArrayList<Integer>(); // initializes ArrayList
+        
+        System.out.println("Enter in an integer between 0 and 40"); // asks user to enter in an integer up to 40 (at that point the computer takes a noticeably 
+                                                                    // longer time with its calculations
+        System.out.println("Type \'q\' to end the list."); // tells user to press 'q' when the user wants to quit       
+        System.out.println();
+        
+        String input = in.next(); // user input saved as a string
+        
+        // while the user did not press 'q'
+        while (!input.equalsIgnoreCase("q")) {
+            if (Integer.parseInt(input) <= 40) { // if the integer is less than 41
+                numbers.add(Integer.parseInt(input)); // value is added to the ArrayList
+                System.out.print("Enter in another valid number or \'q\' to quit "); // computer asks user if they want to do another number
+                input = in.next();
+            } else { // if an invalid number is entered
+                System.out.println("Invalid number, enter in valid number or \'q\' to quit "); // the user is asked to enter in a valid number
+                input = in.next();
+            }
+        }
+        // for every value in the arrayList, the method calcFibonaci is ran and results are printed
+        for (int i = 0; i < numbers.size(); i++) {
+            numbers.set(i, num.calcFibonacci(numbers.get(i)));
+            System.out.println(numbers.get(i));
+        }
+    }
+}

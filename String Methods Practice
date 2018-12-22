@@ -1,0 +1,96 @@
+/**
+ * A program to allow students to try out different
+ * String methods.
+ *
+ * Code adapted from work by Laurie White for the College Board.
+ *
+ * Brian Snyder
+ * 1/15/18
+ */
+public class StringExplorer
+{
+    public static void main(String[] args)
+    {
+        String sample = "The quick brown fox jumped over the lazy dog.";
+        System.out.println("sample = " + sample);
+        System.out.println();
+
+        //  Demonstrate the indexOf method.
+        int position = sample.indexOf("quick");
+        System.out.println("sample.indexOf(\"quick\") = " + position);
+
+        int notFoundPos  = sample.indexOf("slow");
+        System.out.println("sample.indexOf(\"slow\") = " + notFoundPos);
+
+        position = sample.indexOf("o");
+        System.out.println("sample.indexOf(\"o\") = "+ position);
+        position = sample.indexOf("o", position + 1);
+        System.out.println("sample.indexOf(\"o\", position + 1) = " + position);
+
+        System.out.println();
+
+        //  Demonstrate the toLowerCase method.
+        String lowerCase = sample.toLowerCase();
+        System.out.println("sample.toLowerCase() = " + lowerCase);
+        System.out.println("After toLowerCase(), sample = " + sample);
+        System.out.println();
+
+        boolean isEqual = sample.equals(sample.toLowerCase());
+        System.out.println("sample.equals(sample.toLowerCase() = "+ isEqual);
+
+        // Assign a new value to sample. Use a phrase of your choosing.
+        // Pad the beginning and end of the string literal with spaces.
+        sample = "    ";
+
+        //    trim() method example
+        String example1 = " Test string ";
+        String trimExample1 = example1.trim();
+        System.out.println("String: " + example1);
+        System.out.println("After trim(), string = " + trimExample1);
+        System.out.println();
+        
+        //    length() method example
+        String example2 = "Test string";
+        int length = example2.length();
+        System.out.println("String: " + example2);
+        System.out.println("Length of String: " + length);
+        System.out.println();
+        
+        //    indexOf with one parameter example
+        String example3 = "Test string";
+        int index1 = example3.indexOf("Test");
+        System.out.println("String: " + example3);
+        System.out.println("Index of \"Test\": " + index1);
+        System.out.println();
+        
+        //    indexOf with two parameters example
+        String example4 = "test string is a test";
+        int index2 = example4.indexOf("test", 1);
+        System.out.println("String: " + example4);
+        System.out.println("Index of \"test\" after index position of 1: " + index2);
+        System.out.println();
+        
+        //    substring() with one parameter example
+        String example5 = "Test String";
+        String newExample5 = example5.substring(4);
+        System.out.println("String: " + example5);
+        System.out.println("Substring of example after index of 4: " + newExample5);
+        System.out.println();
+        
+        //    substring() with two parameters example
+        String example6 = "Test String";
+        String newExample6 = example6.substring(2,8);
+        System.out.println("String: " + example6);
+        System.out.println("Substring of example from index 2-8: " + newExample6);
+        System.out.println();
+        
+        //    compareTo()
+        String example7 = "test";
+        String example8 = "string";
+        int difference = example7.compareTo(example8);
+        System.out.println("String 1: " + example7);
+        System.out.println("String 2: " + example8);
+        System.out.println("Difference between strings: " + difference);
+        System.out.println();
+    }
+}

@@ -1,0 +1,59 @@
+/**
+ * Create a program that serves as an example of recurison
+ *
+ * Brian Snyder
+ * 1/8/18
+ */
+import java.util.Scanner;
+import java.util.ArrayList;
+public class recursion {
+    // recursive method
+    public int recursionMethod(int x) {
+        if (x < 3) {
+            return 0; // if x is less than 3, it returns 0
+        } else {
+            return (recursionMethod(x-1) + 2); // else, program calls itself
+        }
+    }
+    // main method
+    public static void main(String[] args) {
+        // initializes scanner, object, and ArrayLists
+        Scanner in = new Scanner(System.in);
+        recursion num = new recursion();
+        ArrayList<Integer> numbers = new ArrayList<Integer>(); // arrayList for results
+        ArrayList<String> inputs = new ArrayList<String>(); // arrayList for user entered input
+        
+        // asks user to enter in a number
+        System.out.println("Enter in any integer up to 6000"); // up to 6000 b/c program can't handle any higher number
+        System.out.println("You can enter in as many numbers as you want");
+        System.out.println("When you want to see the results, press \'q\'");
+        
+        // saves input as a string
+        String input = in.next();
+        
+        // while the user did not quit
+        while (!input.equalsIgnoreCase("q")) {
+            // if the integer is less than 6001
+            if (Integer.parseInt(input) <= 6000) {
+                inputs.add(input); // adds input into array
+                numbers.add(Integer.parseInt(input)); // adds int to array
+                // Asks user if they want to enter in another number
+                System.out.println("Enter in another integer if you want or press \'q\' to quit");
+                input = in.next();
+            } else { // if input is invaid, the user is asked to enter another number
+                System.out.println("Invalid number, enter in a valid number or press \'q\' to quit");
+                input = in.next();
+            }
+        }
+        
+        // displays results
+        System.out.println("");
+        System.out.println("Results");
+        for (int i = 0; i < numbers.size(); i++) {
+            // sets arrayList of ints equal to results of recursiveMethod
+            numbers.set(i, num.recursionMethod(numbers.get(i)));
+            // prints arrayLists
+            System.out.println(inputs.get(i) + ": " + numbers.get(i));
+        }
+    }
+}

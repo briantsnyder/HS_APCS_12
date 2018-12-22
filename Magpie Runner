@@ -1,0 +1,31 @@
+/**
+ * A simple class to run the Magpie class.
+
+ * Code adapted from work by Laurie White for the College Board.
+ *
+ * Brian Snyder
+ * 1/15/18
+ */
+
+import java.util.Scanner;
+
+public class MagpieRunner2
+{
+    /**
+     * Create a Magpie, give it user input, and print its replies.
+     */
+    public static void main(String[] args)
+    {
+        Magpie2 maggie = new Magpie2(); // initializes object
+
+        System.out.println (maggie.getGreeting()); // greets user
+        Scanner in = new Scanner (System.in); // user turn to respond
+        String statement = in.nextLine();
+
+        while (!statement.equals("Bye")) // until the user syas "Bye", code responds to user and what he/she types in
+        {
+            System.out.println (maggie.getResponse(statement));
+            statement = in.nextLine();
+        }
+    }
+}
